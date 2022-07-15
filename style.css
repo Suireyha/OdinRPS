@@ -34,7 +34,7 @@ input:hover{
     justify-content: center;
 }
 
-.winStat{
+#winStat{
     background: yellow;
     width: 100px;
     height: 100px;

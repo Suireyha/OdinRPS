@@ -23,16 +23,27 @@ let winStat = document.querySelector('.winStat');
 var playerChoice = move.MAX_VALUE;
 
 //Functions
+
+function gameWin(){
+    console.log("You won!");
+    document.getElementById("winStat").style.backgroundColor = "lime";
+}
+
+function gameLose(){
+    console.log("You lost!");
+    document.getElementById("winStat").style.backgroundColor = "red";
+}
+
 function result(op, plr){
     var tie = false;
     switch (op){
 
         case "Rock":
             if(plr == "Paper"){
-                console.log("You won!");
+                gameWin();
             }
             else if(plr == "Scissors"){
-                console.log("You lost!");
+                gameLose();
             }
             else{
                 tie = true;
@@ -40,10 +51,10 @@ function result(op, plr){
             break;
         case "Scissors":
             if(plr === "Rock"){
-                console.log("You won!");
+                gameWin();
             }
             else if (plr ==="Paper"){
-                console.log("You lost!");
+                gameLose();
             }
             else{
                 tie = true;
@@ -51,10 +62,10 @@ function result(op, plr){
             break;
         case "Paper":
             if(plr == "Scissors"){
-                console.log("You won!");
+                gameWin();
             }
             else if(plr == "Rock"){
-                console.log("You lost!");
+                gameLose();
             }
             else{
                 tie = true;
@@ -66,6 +77,7 @@ function result(op, plr){
 
     if (tie){
         console.log("You tied!");
+        document.getElementById("winStat").style.backgroundColor = "yellow";
     }
 }
 
