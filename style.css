@@ -1,3 +1,47 @@
 body{
     background-color: #181716;
+    overflow: hidden;
+}
+
+img{
+    width: 200px;
+}
+
+input{
+    overflow: hidden;
+    width: 256px;
+    height: 256px;
+    border: none;
+}
+
+input:hover{
+    border-style: solid;
+    border: 3px;
+    border-color: white;
+}
+
+.divMain{
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rock{
+    background: url(./assets/rock.png) no-repeat scroll 0 0 transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.paper{
+    background: url(./assets/paper.png) no-repeat scroll 0 0 transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.scissors{
+    background: url(./assets/scissors.png) no-repeat scroll 0 0 transparent;
+    color: transparent;
+    cursor: pointer;
 }
