@@ -17,21 +17,52 @@ class object {
 let btnRock = new object(move.Rock, document.querySelector('.rock'));
 let btnPaper = new object(move.Paper, document.querySelector('.paper'));
 let btnScissors = new object(move.Scissors, document.querySelector('.scissors'));
-let winStat = document.querySelector('.winStat');
+const btns = document.querySelectorAll('.btn');
+//let winStat = document.querySelector('.winStat');
+//let pHealth = document.getElementById('aiTal');
+//let uiHealth = document.getElementById('plrTal');
+let aiLives = document.querySelectorAll('#aiTal .mark');
+let plrLives = document.querySelectorAll('#plrTal .mark');
 
 //Initialize logic variables
 var playerChoice = move.MAX_VALUE;
+var aiWins = 0;
+var plrWins = 0;
 
 //Functions
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function gameOver(won){
+    if(won){
+        //Won
+    }
+    
+    else{
+        //Lost
+    }
+}
+
 function gameWin(){
     console.log("You won!");
-    document.getElementById("winStat").style.backgroundColor = "lime";
+
+    aiLives[4 - plrWins].style.backgroundColor = 'transparent';
+    plrWins++;
+
+    if (plrWins > 4){
+        gameOver(true);
+    }
 }
 
 function gameLose(){
     console.log("You lost!");
-    document.getElementById("winStat").style.backgroundColor = "red";
+
+    plrLives[4 - aiWins].style.backgroundColor = 'transparent';
+    aiWins++;
+
+    gameOver();
 }
 
 function result(op, plr){
@@ -77,7 +108,6 @@ function result(op, plr){
 
     if (tie){
         console.log("You tied!");
-        document.getElementById("winStat").style.backgroundColor = "yellow";
     }
 }
 
@@ -89,14 +119,14 @@ function playRPS(select){
 }
 
 //Button functionality
-btnRock.cont.addEventListener('click', ()=>{playRPS(move[0]);});
-btnPaper.cont.addEventListener('click', ()=>{playRPS(move[1])});
-btnScissors.cont.addEventListener('click', ()=>{playRPS(move[2])});
 
-/* I didn't actually read the asignment, so I know that this is probably a bit unorthodox comparatively,
- * but I did go back and read that there were meant to be rounds involved.
- * This would be easy enough to add, just make a matchCounter variable, as well as two winCounters for the AI and the Player.
- * After (matchCounter == matchAmount) compare winCountAI and winCountPlr. If AI > Plr, the AI won, else the player won. 
- * 
- * Just can't really be assed to add it in because the code is spaghetti as is, and I have to leave room for some improvement in the later chapter. ;)
- */
+
+    btnRock.cont.addEventListener('click', ()=>{playRPS(move[0]);});
+    btnPaper.cont.addEventListener('click', ()=>{playRPS(move[1])});
+    btnScissors.cont.addEventListener('click', ()=>{playRPS(move[2])});
+    
+
+
+
+
+//Heart # works l-r: (0,1,2,3,4). So, maths should decrement from 4.

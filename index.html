@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/0ae03344f7.js" crossorigin="anonymous"></script>
+    <script src="/script.js" defer></script>
     <link rel="stylesheet" href="/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +13,39 @@
 
     <div class="divMain">
 
-        <div id="winStat"></div>
+        <div class="spaghetti">
+            <h2>AI:</h2>
+            <div class="tally" id="aiTal">
+                <div class="mark"></div>
+                <div class="mark"></div> 
+                <div class="mark"></div> 
+                <div class="mark"></div> 
+                <div class="mark"></div>     
+            </div>
+        </div>
+
+        <!-- <div id="winStat"> -->
 
         <div class="divButtons">
-            <input type="submit" name="Submit" class="rock">
-            <input type="submit" name="Submit" class="paper">
-            <input type="submit" name="rock" class="scissors">
+            <input type="submit" name="Submit" class="rock btn">
+            <input type="submit" name="Submit" class="paper btn">
+            <input type="submit" name="rock" class="scissors btn">
+        </div>
+
+        <div class="spaghetti">
+            <h2>Player:</h2>
+            <div class="tally" id="plrTal">
+                <div class="mark"></div>
+                <div class="mark"></div> 
+                <div class="mark"></div> 
+                <div class="mark"></div> 
+                <div class="mark"></div>     
+            </div>
         </div>
 
 
     </div>
 
-    <script src="/script.js"></script>
+    
 </body>
 </html>

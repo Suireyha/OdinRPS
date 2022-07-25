@@ -7,7 +7,14 @@ img{
     width: 200px;
 }
 
+h2{
+    align-self: center;
+    color: white;
+    
+}
+
 input{
+    transition: all .07s;
     overflow: hidden;
     width: 256px;
     height: 256px;
@@ -15,9 +22,8 @@ input{
 }
 
 input:hover{
-    border-style: solid;
-    border: 3px;
-    border-color: white;
+    transition: all .07s;
+    box-shadow: 0 0 25px red;
 }
 
 .divMain{
@@ -25,7 +31,7 @@ input:hover{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -35,6 +41,7 @@ input:hover{
 }
 
 #winStat{
+    transition:all .7s;
     background: yellow;
     width: 100px;
     height: 100px;
@@ -57,4 +64,24 @@ input:hover{
     background: url(./assets/scissors.png) no-repeat scroll 0 0 transparent;
     color: transparent;
     cursor: pointer;
+}
+
+.tally{
+    display: flex;
+    align-self: center;
+    justify-content: start;
+    width: auto;
+    gap: 3px;
+}
+
+.mark{
+    transition:all 1.5s;
+    width: 125px;
+    height: 20px;
+    background-color: #ed2424;
+}
+
+.spaghetti{
+    display: flex;
+    flex-direction: column;
 }
