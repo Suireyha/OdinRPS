@@ -8,9 +8,10 @@ img{
 }
 
 h2{
+    transition: all 0.7s;
     align-self: center;
     color: white;
-    
+    font-family: 'Courier New', Courier, monospace;
 }
 
 input{
@@ -21,23 +22,33 @@ input{
     border: none;
 }
 
-input:hover{
-    transition: all .07s;
-    box-shadow: 0 0 25px red;
+#btn{
+    transition: all 0.3s;
+    font-size: 100px;
+    margin: 0 60px 0 60px;
+    color: white;
+}
+
+#btn:hover{
+    font-size: 125px;
+    cursor: grabbing;
 }
 
 .divMain{
     overflow: hidden;
     height: 100vh;
     display: flex;
+    overflow-x: hidden;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .divButtons{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 150px;
 }
 
 #winStat{
@@ -46,24 +57,6 @@ input:hover{
     width: 100px;
     height: 100px;
     border-radius: 50px;
-}
-
-.rock{
-    background: url(./assets/rock.png) no-repeat scroll 0 0 transparent;
-    color: transparent;
-    cursor: pointer;
-}
-
-.paper{
-    background: url(./assets/paper.png) no-repeat scroll 0 0 transparent;
-    color: transparent;
-    cursor: pointer;
-}
-
-.scissors{
-    background: url(./assets/scissors.png) no-repeat scroll 0 0 transparent;
-    color: transparent;
-    cursor: pointer;
 }
 
 .tally{
@@ -76,12 +69,17 @@ input:hover{
 
 .mark{
     transition:all 1.5s;
+    font-size: 125px;
     width: 125px;
     height: 20px;
-    background-color: #ed2424;
+    color: #ed2424;
 }
 
 .spaghetti{
     display: flex;
     flex-direction: column;
+}
+
+#plrTal{
+    margin-bottom: 200px;
 }

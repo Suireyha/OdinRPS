@@ -17,12 +17,14 @@ class object {
 let btnRock = new object(move.Rock, document.querySelector('.rock'));
 let btnPaper = new object(move.Paper, document.querySelector('.paper'));
 let btnScissors = new object(move.Scissors, document.querySelector('.scissors'));
-const btns = document.querySelectorAll('.btn');
+const btns = document.querySelectorAll('#btn');
+let headers = document.getElementsByClassName('tag');
 //let winStat = document.querySelector('.winStat');
 //let pHealth = document.getElementById('aiTal');
 //let uiHealth = document.getElementById('plrTal');
 let aiLives = document.querySelectorAll('#aiTal .mark');
 let plrLives = document.querySelectorAll('#plrTal .mark');
+const uni = document.querySelector('.main');
 
 //Initialize logic variables
 var playerChoice = move.MAX_VALUE;
@@ -38,17 +40,45 @@ function sleep(ms) {
 function gameOver(won){
     if(won){
         //Won
+        for (var i = 0; i < plrLives.length; i++){
+            plrLives[i].style.color = 'transparent';
+            aiLives[i].style.color = 'transparent';
+        }
+
+        for (var i = 0; i < 2; i++){
+            headers[i].style.color = 'transparent';
+        }
+
+        for (var i = 0; i < 3; i++){
+            btns[i].style.color = 'transparent';
+        }
+
+
+
     }
     
     else{
         //Lost
+        for (var i = 0; i < plrLives.length; i++){
+            plrLives[i].style.color = 'transparent';
+            aiLives[i].style.color = 'transparent';
+        }
+
+        for (var i = 0; i < 2; i++){
+            headers[i].style.color = 'transparent';
+        }
+
+        for (var i = 0; i < 3; i++){
+            btns[i].style.color = 'transparent';
+        }
+
     }
 }
 
 function gameWin(){
     console.log("You won!");
 
-    aiLives[4 - plrWins].style.backgroundColor = 'transparent';
+    aiLives[4 - plrWins].style.color = 'transparent';
     plrWins++;
 
     if (plrWins > 4){
@@ -59,13 +89,15 @@ function gameWin(){
 function gameLose(){
     console.log("You lost!");
 
-    plrLives[4 - aiWins].style.backgroundColor = 'transparent';
+    plrLives[4 - aiWins].style.color = 'transparent';
     aiWins++;
 
-    gameOver();
+    if (aiWins > 4){
+        gameOver(false);
+    }
 }
 
-function result(op, plr){
+async function result(op, plr){
     var tie = false;
     switch (op){
 
@@ -107,7 +139,13 @@ function result(op, plr){
     }
 
     if (tie){
-        console.log("You tied!");
+
+        aiLives[4 - plrWins].setAttribute('style', 'font-size: 150px; color: yellow;');
+        plrLives[4 - aiWins].setAttribute('style', 'font-size: 150px; color: yellow;');
+        await sleep(300);
+        aiLives[4 - plrWins].setAttribute('style', 'font-size: 125px; color: #ed2424;');
+        plrLives[4 - aiWins].setAttribute('style', 'font-size: 125px; color: #ed2424;');
+
     }
 }
 
@@ -121,12 +159,11 @@ function playRPS(select){
 //Button functionality
 
 
-    btnRock.cont.addEventListener('click', ()=>{playRPS(move[0]);});
-    btnPaper.cont.addEventListener('click', ()=>{playRPS(move[1])});
-    btnScissors.cont.addEventListener('click', ()=>{playRPS(move[2])});
+btnRock.cont.addEventListener('click', ()=>{playRPS(move[0]);});
+btnPaper.cont.addEventListener('click', ()=>{playRPS(move[1])});
+btnScissors.cont.addEventListener('click', ()=>{playRPS(move[2])});
     
 
 
 
 
-//Heart # works l-r: (0,1,2,3,4). So, maths should decrement from 4.
