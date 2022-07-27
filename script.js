@@ -24,8 +24,8 @@ let headers = document.getElementsByClassName('tag');
 //let uiHealth = document.getElementById('plrTal');
 let aiLives = document.querySelectorAll('#aiTal .mark');
 let plrLives = document.querySelectorAll('#plrTal .mark');
-const uni = document.querySelector('.main');
-
+const uni = document.querySelector('.divMain');
+const blahblah = document.querySelector('.divButtons');
 //Initialize logic variables
 var playerChoice = move.MAX_VALUE;
 var aiWins = 0;
@@ -37,7 +37,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function gameOver(won){
+async function gameOver(won){
     if(won){
         //Won
         for (var i = 0; i < plrLives.length; i++){
@@ -53,8 +53,22 @@ function gameOver(won){
             btns[i].style.color = 'transparent';
         }
 
+        await sleep(1200);
 
+        let youWon = document.createElement('h1');
+        youWon.textContent = "You won!";
+        let replay = document.createElement('i');
+        replay.style.color = 'transparent';
+        replay.setAttribute('id', 'btn');
+        replay.setAttribute('class', 'fa-solid fa-arrow-rotate-right');
+        
+        uni.insertBefore(youWon, blahblah);
+        uni.insertBefore(replay, blahblah);
 
+        await sleep(300);
+
+        replay.style.color = 'white';
+        replay.addEventListener('click', ()=>{location.reload();})
     }
     
     else{
@@ -72,6 +86,22 @@ function gameOver(won){
             btns[i].style.color = 'transparent';
         }
 
+        await sleep(1200);
+
+        let youLost = document.createElement('h1');
+        youLost.textContent = "You lost!";
+        let replay = document.createElement('i');
+        replay.style.color = 'transparent';
+        replay.setAttribute('id', 'btn');
+        replay.setAttribute('class', 'fa-solid fa-arrow-rotate-right');
+
+        uni.insertBefore(youLost, blahblah);
+        uni.insertBefore(replay, blahblah);
+
+        await sleep(300);
+
+        replay.style.color = 'white';
+        replay.addEventListener('click', ()=>{location.reload();})
     }
 }
 
